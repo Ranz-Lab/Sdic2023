@@ -1,17 +1,4 @@
 #!/bin/bash
-#SBATCH --job-name=HTStream_FlyAtlas       ## Name of the job. !!CHANGE THIS TO APPROPRIATE NAME!!
-#SBATCH -A JRANZ_LAB                     ## account to charge
-#SBATCH -p standard                     ## partition/queue name
-#SBATCH --nodes=1			## use 1 node, don’t ask for multiple
-#SBATCH --ntasks=4  			##number of CPUS on 1 node
-#SBATCH --time=72:00:00			##time limit for job
-#SBATCH --mem-per-cpu=8G		##memory put CPU; if ntasks = 4, total mem = 32Gb
-#SBATCH --array=1-12			##line of the array file to create a job; can do 1-n or just n
-#SBATCH --output=/dfs5/bio/fangninl/slurmout/htstream_%A_%a.out 	## File to which STDOUT will be written ## slurm error file, %x - job name, %A job id
-#SBATCH --error=/dfs5/bio/fangninl/slurmout/htstream_%A_%a.err 		## File to which STDERR will be written ## slurm output file, %x - job name, %A job id
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=fangninl@uci.edu
-
 
 
 start=`date +%s`
