@@ -36,7 +36,7 @@ SRef_cur2="56"	## !!the start pos of current core motif in ref
 ERef_cur2="75"	## !!the end pos of current core motif in ref
 
 
-##	!!DO NOT MODIFY BELOW HERE!!
+##	!!DO NOT MODIFY BELOW HERE, UNLESS YOUR READS ARE DIFFERENT FROM 101nt LONG THEN ONLY CHANGE LRead=101 IN THE SECOND LINES OF R1 AND R2 BELOW TO THE LENGTH OF YOUR READS!!
 
 #R1
 zcat ${INPATH}/${SAMPLE}/${SAMPLE}_R1.fastq.gz | grep -A 2 -B 1 ${coremotifSeq_cur1} - | sed '/^--/d' | gzip - > ${OUTPATH}/${SAMPLE}/${motifID_cur}_${SAMPLE}_R1.fastq.gz
