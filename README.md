@@ -4,12 +4,12 @@ Follow these steps to run the "Motif-Counter" pipeline used in Clifton et al 202
 Before starting:
     
     1. Create a .txt file with a list of your sample IDs
-    2. Create a directory structure with a subdirectory for each sample. You can use script CreateSampleSubdirectories.sh to quickly create subdirectories from your sample list.
+    2. Create a directory containing subdirectories for each of your samples. You can use script CreateSampleSubdirectories.sh to quickly create subdirectories from your sample list.
 
 To run Motif-Counter and obtain reads with perfect matches to the extended motif:
 
     1. Preprocess raw paired-end RNA-seq reads using HTStream (https://s4hts.github.io/HTStream/)
-    2. Run the MotifCounter script after modifying it for your gene of interest sequences and data paths. Input = preprocessed reads
+    2. Run the MotifCounter script after modifying it for your gene of interest sequences and data paths. [Input = preprocessed reads]
 
 To obtain reads with =<1 mismatch to the extended motif:
 
