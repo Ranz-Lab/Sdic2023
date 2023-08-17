@@ -6,7 +6,7 @@
 ###	Files named: Gene_Strain_Tissue_Replicate_ReadDirection_FileType
 
 ###Go through each directory and add line count to output file
-#Get the path to the main directory
+#RUN THIS SCRIPT IN YOUR MAIN DIRECTORY OR INPUT THE PATH TO IT BELOW
 MAINDIR=$(pwd)
 
 #Name intermediary output file
