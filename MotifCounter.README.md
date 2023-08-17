@@ -18,7 +18,7 @@ Create a directory structure with XXXXXXXX
 
 
 To obtain reads with =<1 mismatch to the extended motif 
-1. Transfer _overlap files from above into a mismatch directory with matching subdirectories for each sample
+1. Transfer _overlap files from above into a mismatch directory with matching subdirectories for each sample. Use script CreateSampleSubdirectories.sh to quickly create subdirectories from your sample list
 2. Run (on slurm) AnalysisJob.sh [Note the two seq_pairwise_alignment*.py scripts need to be in the same directory as your AnalysisJob.sh script, do not modify them]
 3. Run (./) readAllLines.sh
 4. Run (./) lineCountTable.py  [This will generate a .csv files containing the counts for each gene x sample]
