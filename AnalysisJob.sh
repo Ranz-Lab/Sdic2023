@@ -14,8 +14,7 @@ source miniconda3/bin/activate
 conda activate pairwise_alignment
 
 ###Go through each directory and run analysis
-#Get the path to the main directory
-cd /dfs5/bio/bclifton/Founders/Testis/03-GeneCounter/mismatch/03-GeneCounter #CHANGE THIS PATH!!!
+cd <PATH> #CHANGE THIS TO THE PATH TO YOUR MAIN DIRECTORY
 MAINDIR=$(pwd)
 
 #For each directory in the main directory find the sample directories
