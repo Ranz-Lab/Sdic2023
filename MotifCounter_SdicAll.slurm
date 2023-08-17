@@ -1,15 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=B6T_SdicCent_MotifCounter           ## Name of the job. !!CHANGE THIS TO APPROPRIATE NAME!!
-#SBATCH -A JRANZ_LAB                                    ## account to charge
-#SBATCH -p standard                                     ## partition/queue name
-#SBATCH --nodes=1                                       ## use 1 node, don’t ask for multiple
-#SBATCH --ntasks=4                                      ##number of CPUS on 1 node
-#SBATCH --time=72:00:00                                 ##time limit for job
-#SBATCH --mem-per-cpu=8G                                ##memory put CPU; if ntasks = 4, total mem = 32Gb
-#SBATCH --output=/dfs5/bio/bclifton/Founders/Testis/slurmout/htstream_%A_%a.out         ## File to which STDOUT will be written ## slurm error file, %x - job name, %A job id
-#SBATCH --error=/dfs5/bio/bclifton/Founders/Testis/slurmout/htstream_%A_%a.err          ## File to which STDERR will be written ## slurm output file, %x - job name, %A job id
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=bclifton@uci.edu
+
 
 set -e
 set -u
@@ -17,14 +7,14 @@ set -o pipefail
 
 ##Inpath and outpath, should take processed reads from 01- and put the outputs into 03- - CHANGE FOR EACH TISSUE
 
-INPATH="/dfs5/bio/bclifton/Founders/Testis/01-HTS_PreprocDUP"
-OUTPATH="/dfs5/bio/bclifton/Founders/Testis/03-GeneCounter/CENTERED"
+INPATH=""    ##processed reads
+OUTPATH=""   ##matching reads
 
-## !!!CHANGE THIS EACH TIME TO RUN SAMPLE SCRIPT FOR EACH SAMPLE TYPE!!! - will run for all 3 replicates and both read directions
-SAMPLE="B6_T"
+## !!!CHANGE THIS EACH TIME TO RUN SAMPLE SCRIPT FOR EACH SAMPLE TYPE!!! - will run for all 3 replicates (A-C) and both read directions
+SAMPLE=""
 
 ##R1 Variables (Rev Compl) - CHANGE FOR EACH GENE
-motifID_cur="SdicAllCENTERED"     ## current motif ID, eg. Sdic1. - CHANGE FOR EACH GENE (SAME FOR R1&R2)
+motifID_cur="SdicAll"     ## current motif ID, eg. Sdic1. - CHANGE FOR EACH GENE (SAME FOR R1&R2)
 coremotifSeq_cur1="CTCAAAGTAGAATACGTTGA"    ## the seq of current core motif. - CHANGE FOR EACH GENE
 refSeq_cur1="GTTCGTAGCCTGCACATTGTAGACGCTTAGGTTGAGAGGCTGTTTCTTTCCGCCGCTCAAAGTAGAATACGTTGATCGTAAAAACTTAATCAGTACTAAGCCCATTGTCCAATCTGTGTAATACTAAGCT" ##!!the seq of current extended motif. - CHANGE FOR EACH GENE
 LCore_cur1="20" ## !!the length of current core motif seq - CHANGE FOR EACH GENE (SAME FOR R1&R2)
@@ -33,7 +23,7 @@ SRef_cur1="56"  ## !!the start pos of current core motif in ref. - CHANGE FOR EA
 ERef_cur1="75"  ## !!the end pos of current core motif in ref. - CHANGE FOR EACH GENE
 
 ##R2 Variables - CHANGE FOR EACH GENE
-#motifID_cur="SdicAllCENTERED"    ## current motif ID, eg. Sdic1. - CHANGE FOR EACH GENE (SAME FOR R1&R2)
+#motifID_cur="SdicAll"    ## current motif ID, eg. Sdic1. - CHANGE FOR EACH GENE (SAME FOR R1&R2)
 coremotifSeq_cur2="TCAACGTATTCTACTTTGAG"    ## the seq of current core motif. - CHANGE FOR EACH GENE
 refSeq_cur2="AGCTTAGTATTACACAGATTGGACAATGGGCTTAGTACTGATTAAGTTTTTACGATCAACGTATTCTACTTTGAGCGGCGGAAAGAAACAGCCTCTCAACCTAAGCGTCTACAATGTGCAGGCTACGAAC"        ## !!the seq of current extended motif. - CHANGE FOR EACH GENE
 LCore_cur2="20" ## !!the length of current core motif seq - CHANGE FOR EACH GENE (SAME FOR R1&R2)
