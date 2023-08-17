@@ -9,6 +9,7 @@ set -o pipefail
 ###	Files named: Gene_Strain_Tissue_Replicate_ReadDirection_FileType
 
 
+###need to first create a conda environment (pairwise_alignment below) with python3
 cd ~
 source miniconda3/bin/activate
 conda activate pairwise_alignment
@@ -35,7 +36,6 @@ do
 		awk '{if($3!=-1 && $12>=70)print}' "${NAME}"_overlap > "${NAME}"_Reads
 		awk '{if($3!=-1 && $12>=70 && $13==$14)print}' "${NAME}"_overlap > "${NAME}"_PerfReads
 		python3 "${MAINDIR}"/seq_pairwise_alinment.py -c1 12 -c2 13 "${NAME}"_Reads | awk '{if($17>=($12-1))print}'  >  "${NAME}"_less1mismatch
-		python3 "${MAINDIR}"/seq_pairwise_alinment_maxS.py -c1 12 -c2 13 "${NAME}"_Reads | awk '{if($17>=($12-1))print}'  >  "${NAME}"_less1mismatchMAX
 	done
 
 	#Move back to the main directory to repeat
